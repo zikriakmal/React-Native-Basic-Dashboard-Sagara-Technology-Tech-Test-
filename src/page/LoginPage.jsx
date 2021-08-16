@@ -23,17 +23,19 @@ function LoginPage()
 
     return (
         <div className="row justify-content-center m-0 ">
-            <div className="col-lg-4 col-md-4  col-11 card shadow p-5 my-3 mx-2" style={{ borderRadius: '14px' }}>
-                <h1 className="text-center text-info" style={{fontWeight:"bold"}}>LOGIN</h1>
-                <GlobalInput title="Email" onChange={(e) => setEmail(e.currentTarget.value)} val={emailVal} />
-                <GlobalInput title="Password" type="password" onChange={(e) => setPassword(e.currentTarget.value)} val={passwordVal} />
-                <Gap height={30} />
-                <div style={{ padding: '0 0 0 0' }}>
-                    <GlobalButton variant="info" type="outline" onClick={submitLogin} >Masuk</GlobalButton>
-                </div>
-                <div className="text-center my-3">
-                    <span> Tidak Punya Akun?    <Link to="/register" className="text-info">Buat Akun</Link>
-                    </span>
+            <div className="col-lg-4 col-md-4 col-10 m-0 card shadow p-2 py-5 my-3" style={{ borderRadius: '14px' }}>
+                <div className="container mt-5">
+                    <h1 className="text-center text-info" style={{ fontWeight: "bold" }}>LOGIN</h1>
+                    <GlobalInput title="Email" onChange={(e) => setEmail(e.currentTarget.value)} val={emailVal} />
+                    <GlobalInput title="Password" type="password" onChange={(e) => setPassword(e.currentTarget.value)} val={passwordVal} />
+                    <Gap height={10} />
+                    <div style={{ padding: '0 0 0 0' }}>
+                        <GlobalButton variant="info" type="outline" onClick={submitLogin} >Masuk</GlobalButton>
+                    </div>
+                    <div className="text-center my-3">
+                        <span> Tidak Punya Akun?    <Link to="/register" className="text-info">Buat Akun</Link>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>

@@ -64,23 +64,25 @@ function RegisterPage()
 
     return (
         <div>
-            <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-6  col-10 m-0 card shadow p-2 my-3 " style={{ borderRadius: '14px' }}>
+            <div className="row justify-content-center m-0">
+                <div className="col-lg-4 col-md-4  col-10 m-0 card shadow p-2 my-3 " style={{ borderRadius: '14px' }}>
                     <div className="container mt-5 ">
-                        <h1 className="text-center text-info" style={{fontWeight:"bold"}}>REGISTER</h1>
+                        <h1 className="text-center text-info" style={{ fontWeight: "bold" }}>REGISTER</h1>
                         <GlobalInput title="Nama Depan:" onChange={(e) => setFirstName(e.currentTarget.value)} val={firstNameVal} />
                         <GlobalInput title="Nama Belakang:" onChange={(e) => setLastName(e.currentTarget.value)} val={lastNameVal} />
                         <GlobalInput title="Email:" onChange={(e) => setEmail(e.currentTarget.value)} val={emailVal} />
                         <GlobalInput title="Password:" type="password" onChange={(e) => setPassword(e.currentTarget.value)} val={passwordVal} />
                         <div>
                             <label className="my-1">Jenis Kelamin :</label>
-                            <RadioButtonComponent label="laki laki" id="gender1" name="gender" onChange={() => setGender('Laki-laki')} checked={gender === 'Laki-laki'} value="Laki-Laki" />
-                            <RadioButtonComponent label="Perempuan" id="gender2" name="gender" onChange={() => setGender('Perempuan')} checked={gender === 'Perempuan'} value="Perempuan" />
+                            <div className="d-flex">
+                                <RadioButtonComponent label="Laki-laki" id="gender1" name="gender" onChange={() => setGender('Laki-laki')} checked={gender === 'Laki-laki'} value="Laki-Laki" />
+                                <RadioButtonComponent label="Perempuan" id="gender2" name="gender" onChange={() => setGender('Perempuan')} checked={gender === 'Perempuan'} value="Perempuan" />
+                            </div>
                         </div>
                         <Gap height={30} />
                         <div>
                             <label className="my-1">Provinsi :</label>
-                            <select className="form-select" aria-label="" onChange={e => setProvince(e.currentTarget.value)} style={{borderRadius:'8px'}} defaultValue={""}  >
+                            <select className="form-select" aria-label="" onChange={e => setProvince(e.currentTarget.value)} style={{ borderRadius: '8px' }} defaultValue={""}  >
                                 <option >Pilih provinsi</option>
                                 {Province.map((data) => { return <option value={data.key} key={data.key}>{data.name}</option> })}
                             </select>
@@ -89,7 +91,7 @@ function RegisterPage()
                         <Gap height={15} />
                         <div>
                             <label className="my-1">Kota :</label>
-                            <select className="form-select" aria-label="" onChange={e => setCity(e.currentTarget.value)} style={{borderRadius:'8px'}} defaultValue={""} >
+                            <select className="form-select" aria-label="" onChange={e => setCity(e.currentTarget.value)} style={{ borderRadius: '8px' }} defaultValue={""} >
                                 <option >Pilih Kota</option>
                                 {City.map((data) => { return province == data.id_province ? <option value={data.key} key={data.key}>{data.name}</option> : null })}
                             </select>
