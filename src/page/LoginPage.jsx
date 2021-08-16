@@ -18,20 +18,23 @@ function LoginPage()
         email === "" ? setEmailVal("Email Tidak boleh kosong") : setEmailVal("")
         password === "" ? setPasswordVal("Password Tidak boleh kosong") : setPasswordVal("")
 
-        if(email !== '' && password !== '') alert("validasi berhasil login sukses");
+        if (email !== '' && password !== '') alert("validasi berhasil login sukses");
     }
 
     return (
-        <div className="container mt-5 w-50">
-            <GlobalInput title="Email" onChange={(e) => setEmail(e.currentTarget.value)} val={emailVal} />
-            <GlobalInput title="Password" type="password" onChange={(e) => setPassword(e.currentTarget.value)} val={passwordVal} />
-            <Gap height={30} />
-            <div style={{ padding: '0 0 0 0' }}>
-                <GlobalButton variant="info" type="outline" onClick={submitLogin} >Masuk</GlobalButton>
-            </div>
-            <div className="text-center my-3">
-                <span> Tidak Punya Akun?    <Link to="/register">Buat Akun</Link>
-                </span>
+        <div className="row">
+            <div className="col-lg-6 col-md-6  col-12 mx-auto">
+                <h1 className="text-center text-info" style={{fontWeight:"bold"}}>LOGIN</h1>
+                <GlobalInput title="Email" onChange={(e) => setEmail(e.currentTarget.value)} val={emailVal} />
+                <GlobalInput title="Password" type="password" onChange={(e) => setPassword(e.currentTarget.value)} val={passwordVal} />
+                <Gap height={30} />
+                <div style={{ padding: '0 0 0 0' }}>
+                    <GlobalButton variant="info" type="outline" onClick={submitLogin} >Masuk</GlobalButton>
+                </div>
+                <div className="text-center my-3">
+                    <span> Tidak Punya Akun?    <Link to="/register" className="text-info">Buat Akun</Link>
+                    </span>
+                </div>
             </div>
         </div>
     )

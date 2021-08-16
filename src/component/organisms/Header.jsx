@@ -1,17 +1,18 @@
 import React from 'react'
 import { Container, Nav, Navbar } from 'react-bootstrap'
 import logo from '../../assets/sagara-logo.png';
+import '../../App.css';
 import { Link } from "react-router-dom";
 import GlobalButton from '../atoms/GlobalButton/GlobalButton';
 function Header()
 {
   return (
-    <Navbar bg="dark" expand="lg">
+    <Navbar bg="dark"  expand="lg" variant="dark">
       <Container fluid={true}>
         <div className={'navbar-brand'}>
           <Link to="/"> <img src={logo} alt="" /></Link>
         </div>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle bg="dark" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="w-100 text-right align-self-end">
           </Nav>

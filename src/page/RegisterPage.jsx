@@ -20,7 +20,8 @@ const City = [
     { 'key': 6, 'id_province': 2, 'name': 'Takengon' },
 ]
 
-function validateEmail(email) {
+function validateEmail(email)
+{
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
 }
@@ -45,62 +46,70 @@ function RegisterPage()
     const [province, setProvince] = useState('');
     const [city, setCity] = useState('');
 
-    const submitRegister= ()=>{
+    const submitRegister = () =>
+    {
         firstName === "" ? setFirstNameVal("Nama depan tidak boleh kosong") : setFirstNameVal("")
         lastName === "" ? setLastNameVal("Nama belakang boleh kosong") : setLastNameVal("")
         email === "" ? setEmailVal("Email Tidak boleh kosong") : setEmailVal("")
         password === "" ? setPasswordVal("Password Tidak boleh kosong") : setPasswordVal("")
-        province === "" ? setProvinceVal("Provinsi Tidak boleh kosong") : setProvinceVal("")
-        city === "" ? setCityVal("Kota Tidak boleh kosong") : setCityVal("")
+        province === "" ? setProvinceVal("Provinsi harus dipilih") : setProvinceVal("")
+        city === "" ? setCityVal("Kota harus dipilih") : setCityVal("")
 
 
-        !validateEmail(email) ? setEmailVal("Format Email Tidak valid"): setEmailVal("")
-        
-        if(email !== '' && password !== '' && firstName !== '' && lastName !== '' && province !== '' && city !== '' && validateEmail(email)) alert("validasi berhasil registrasi sukses");
-   
+        !validateEmail(email) ? setEmailVal("Format Email Tidak valid") : setEmailVal("")
+
+        if (email !== '' && password !== '' && firstName !== '' && lastName !== '' && province !== '' && city !== '' && validateEmail(email)) alert("validasi berhasil registrasi sukses");
+
     }
 
     return (
         <div>
-            <div className="container mt-5 w-50">
-                <GlobalInput title="Nama Depan" onChange={(e) =>setFirstName(e.currentTarget.value) } val={firstNameVal} />
-                <GlobalInput title="Nama Belakang" onChange={(e) =>setLastName(e.currentTarget.value) } val={lastNameVal}/>
-                <GlobalInput title="Email" onChange={(e) =>setEmail(e.currentTarget.value) } val={emailVal} />
-                <GlobalInput title="Password" type="password" onChange={(e) =>setPassword(e.currentTarget.value) } val={passwordVal}/>
-                <div>
-                    <label className="my-1">Jenis Kelamin :</label>
-                    <RadioButtonComponent label="laki laki" id="gender1" name="gender" onChange={() => setGender('Laki-laki')} checked={gender === 'Laki-laki'} value="Laki-Laki" />
-                    <RadioButtonComponent label="Perempuan" id="gender2" name="gender" onChange={() => setGender('Perempuan')} checked={gender === 'Perempuan'} value="Perempuan" />
-                </div>
-                <Gap height={30} />
-                <div>
-                    <label  className="my-1">Provinsi :</label>
-                    <select className="form-select" aria-label="" onChange={e => setProvince(e.currentTarget.value)} defaultValue={""}  >
-                        <option >Pilih provinsi</option>
-                        {Province.map((data) => { return <option value={data.key} key={data.key}>{data.name}</option> })}
-                    </select>
-                    <p style={{color:"red",fontSize:12}}>{provinceVal}</p>
-                </div>
-                <Gap height={30} />
-                <div>
-                    <label className="my-1">Kota :</label>
-                    <select className="form-select" aria-label="" onChange={e => setCity(e.currentTarget.value)} defaultValue={""} >
-                        <option >Pilih Kota</option>
-                        {City.map((data) => { return province == data.id_province ? <option value={data.key} key={data.key}>{data.name}</option> : null })}
-                    </select>
-                    <p style={{color:"red",fontSize:12}}>{cityVal}</p>
-                </div>
-                <Gap height={30} />
-                <div style={{ padding: '0 0 0 0' }}>
-                    <GlobalButton variant="info" type="outline" onClick={submitRegister} >Daftar</GlobalButton>
-                </div>
-                <div className="text-center my-3">
-                    <span> Sudah punya akun?    <Link to="/login">Masuk disini</Link>
-                    </span>
+            <div className="row">
+                <div className="col-lg-6 col-md-6  col-12 mx-auto">
+                    <div className="container mt-5">
+                        <h1 className="text-center text-info" style={{fontWeight:"bold"}}>REGISTER</h1>
+                        <GlobalInput title="Nama Depan:" onChange={(e) => setFirstName(e.currentTarget.value)} val={firstNameVal} />
+                        <GlobalInput title="Nama Belakang:" onChange={(e) => setLastName(e.currentTarget.value)} val={lastNameVal} />
+                        <GlobalInput title="Email:" onChange={(e) => setEmail(e.currentTarget.value)} val={emailVal} />
+                        <GlobalInput title="Password:" type="password" onChange={(e) => setPassword(e.currentTarget.value)} val={passwordVal} />
+                        <div>
+                            <label className="my-1">Jenis Kelamin :</label>
+                            <RadioButtonComponent label="laki laki" id="gender1" name="gender" onChange={() => setGender('Laki-laki')} checked={gender === 'Laki-laki'} value="Laki-Laki" />
+                            <RadioButtonComponent label="Perempuan" id="gender2" name="gender" onChange={() => setGender('Perempuan')} checked={gender === 'Perempuan'} value="Perempuan" />
+                        </div>
+                        <Gap height={30} />
+                        <div>
+                            <label className="my-1">Provinsi :</label>
+                            <select className="form-select" aria-label="" onChange={e => setProvince(e.currentTarget.value)} style={{borderRadius:'8px'}} defaultValue={""}  >
+                                <option >Pilih provinsi</option>
+                                {Province.map((data) => { return <option value={data.key} key={data.key}>{data.name}</option> })}
+                            </select>
+                            <p style={{ color: "red", fontSize: 12 }}>{provinceVal}</p>
+                        </div>
+                        <Gap height={15} />
+                        <div>
+                            <label className="my-1">Kota :</label>
+                            <select className="form-select" aria-label="" onChange={e => setCity(e.currentTarget.value)} style={{borderRadius:'8px'}} defaultValue={""} >
+                                <option >Pilih Kota</option>
+                                {City.map((data) => { return province == data.id_province ? <option value={data.key} key={data.key}>{data.name}</option> : null })}
+                            </select>
+                            <p style={{ color: "red", fontSize: 12 }}>{cityVal}</p>
+                        </div>
+                        <Gap height={15} />
+                        <div style={{ padding: '0 0 0 0' }}>
+                            <GlobalButton variant="info" type="outline" onClick={submitRegister} >Daftar</GlobalButton>
+                        </div>
+                        <div className="text-center my-3">
+                            <span> Sudah punya akun?    <Link to="/login" className="text-info">Masuk disini</Link>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
     )
 }
+
 
 export default RegisterPage

@@ -1,10 +1,13 @@
 import React from 'react'
 
-function Footer() {
+function Footer()
+{
     return (
-        <div>
-           <h1>This is footer</h1> 
-        </div>
+            <footer className="">
+                <div className="bg-dark p-2 py-4">
+                    <p className="p-0 m-0 text-white text-center">© Sagara Technology, dibuat dengan ♥ oleh zikri akmal  !</p>
+                </div>
+            </footer>
     )
 }
 

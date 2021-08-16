@@ -1,5 +1,5 @@
-import './App.css';
-import {
+import
+{
   BrowserRouter as Router,
   Switch,
   Route,
@@ -8,24 +8,29 @@ import MainPage from './page/MainPage';
 import LoginPage from './page/LoginPage';
 import RegisterPage from './page/RegisterPage';
 import Header from './component/organisms/Header';
+import Footer from './component/organisms/Footer';
 
 
-function App() {
+function App()
+{
   return (
-    <Router>
-    <Header />
-      <div>
-        <Switch>
-          <Route exact path="/">
-            <MainPage/> 
-          </Route>
-          <Route exact path="/login">
-           <LoginPage/> 
-          </Route>
-          <Route exact path="/register">
-            <RegisterPage/> 
-          </Route>
-        </Switch>
+    <Router >
+      <div style={{ height: '100vh',display:'flex',flexDirection:'column',justifyContent:'space-between' }}>
+        <Header />
+        <div >
+          <Switch>
+            <Route exact path="/">
+              <MainPage />
+            </Route>
+            <Route exact path="/login">
+              <LoginPage />
+            </Route>
+            <Route exact path="/register">
+              <RegisterPage />
+            </Route>
+          </Switch>
+        </div>
+        <Footer />
       </div>
     </Router>
   );
