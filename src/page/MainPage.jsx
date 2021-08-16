@@ -3,7 +3,7 @@ import React from 'react'
 function MainPage()
 {
     return (
-        <div className={'container my-5 card shadow p-5 text-center'}>
+        <div className={'container my-5 card shadow p-5 text-center'} style={{borderRadius:'14px'}}>
             <h1>Test FrontEnd Sagara technology</h1>
             <h2>Dev : Zikri Akmal Santoso</h2>
             <div>
