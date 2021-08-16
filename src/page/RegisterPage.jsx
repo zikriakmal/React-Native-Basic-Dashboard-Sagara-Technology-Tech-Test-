@@ -15,9 +15,15 @@ const City = [
     { 'key': 1, 'id_province': 1, 'name': 'Medan' },
     { 'key': 2, 'id_province': 1, 'name': 'Tebing tinggi' },
     { 'key': 3, 'id_province': 1, 'name': 'Siantar' },
+    { 'key': 7, 'id_province': 1, 'name': 'Stabat' },
+    { 'key': 8, 'id_province': 1, 'name': 'Rantau Prapat' },
+
+
     { 'key': 4, 'id_province': 2, 'name': 'Banda Aceh' },
     { 'key': 5, 'id_province': 2, 'name': 'Langsa' },
-    { 'key': 6, 'id_province': 2, 'name': 'Takengon' },
+    { 'key': 6, 'id_province': 2, 'name': 'Pidie Jaya' },
+    { 'key': 9, 'id_province': 2, 'name': 'Tamiang' },
+    { 'key': 10, 'id_province': 2, 'name': 'Takengon' },
 ]
 
 function validateEmail(email)
