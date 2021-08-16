@@ -65,8 +65,8 @@ function RegisterPage()
     return (
         <div>
             <div className="row justify-content-center">
-                <div className="col-lg-6 col-md-6  col-11 m-0 ">
-                    <div className="container mt-5">
+                <div className="col-lg-6 col-md-6  col-10 m-0 card shadow p-2 my-3 " style={{ borderRadius: '14px' }}>
+                    <div className="container mt-5 ">
                         <h1 className="text-center text-info" style={{fontWeight:"bold"}}>REGISTER</h1>
                         <GlobalInput title="Nama Depan:" onChange={(e) => setFirstName(e.currentTarget.value)} val={firstNameVal} />
                         <GlobalInput title="Nama Belakang:" onChange={(e) => setLastName(e.currentTarget.value)} val={lastNameVal} />
