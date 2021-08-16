@@ -8,9 +8,9 @@ function Header()
 {
   return (
     <Navbar bg="dark"  expand="lg" variant="dark">
-      <Container fluid={true}>
+      <Container>
         <div className={'navbar-brand'}>
-          <Link to="/"> <img src={logo} alt="" /></Link>
+          <Link to="/"> <img src={logo} style={{width:"250px"}} alt="" /></Link>
         </div>
         <Navbar.Toggle bg="dark" aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

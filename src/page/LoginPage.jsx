@@ -22,8 +22,8 @@ function LoginPage()
     }
 
     return (
-        <div className="row">
-            <div className="col-lg-6 col-md-6  col-12 mx-auto">
+        <div className="row justify-content-center m-0">
+            <div className="col-lg-6 col-md-6  col-11">
                 <h1 className="text-center text-info" style={{fontWeight:"bold"}}>LOGIN</h1>
                 <GlobalInput title="Email" onChange={(e) => setEmail(e.currentTarget.value)} val={emailVal} />
                 <GlobalInput title="Password" type="password" onChange={(e) => setPassword(e.currentTarget.value)} val={passwordVal} />
