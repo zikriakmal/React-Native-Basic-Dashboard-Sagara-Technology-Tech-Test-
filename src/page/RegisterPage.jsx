@@ -56,12 +56,9 @@ function RegisterPage()
     {
         event.preventDefault();
 
-
-       
-
         firstName === "" ? setFirstNameVal("Nama depan tidak boleh kosong") : setFirstNameVal("")
         lastName === "" ? setLastNameVal("Nama belakang boleh kosong") : setLastNameVal("")
-        email === "" ? setEmailVal("Email Tidak boleh kosong") :  (!validateEmail(email) ? setEmailVal("Format Email Tidak valid") : setEmailVal(""))
+        email === "" ? setEmailVal("Email Tidak boleh kosong") : (!validateEmail(email) ? setEmailVal("Format Email Tidak valid") : setEmailVal(""))
         password === "" ? setPasswordVal("Password Tidak boleh kosong") : setPasswordVal("")
         province === "" ? setProvinceVal("Provinsi harus dipilih") : setProvinceVal("")
         city === "" ? setCityVal("Kota harus dipilih") : setCityVal("")
@@ -78,10 +75,27 @@ function RegisterPage()
                     <div className="container mt-5 ">
                         <h1 className="text-center text-info" style={{ fontWeight: "bold" }}>REGISTER</h1>
                         <form onSubmit={submitRegister} >
-                            <GlobalInput title="Nama Depan" onChange={(e) => setFirstName(e.currentTarget.value)} val={firstNameVal} />
-                            <GlobalInput title="Nama Belakang" onChange={(e) => setLastName(e.currentTarget.value)} val={lastNameVal} />
-                            <GlobalInput title="Email" onChange={(e) => setEmail(e.currentTarget.value)} val={emailVal} />
-                            <GlobalInput title="Password" type="password" onChange={(e) => setPassword(e.currentTarget.value)} val={passwordVal} />
+                            <GlobalInput title="Nama Depan" onChange={(e) =>
+                            {
+                                setFirstName(e.currentTarget.value);
+                                e.currentTarget.value === "" ? setFirstNameVal("Nama depan tidak boleh kosong") : setFirstNameVal("")
+                            }} val={firstNameVal} />
+                            <GlobalInput title="Nama Belakang" onChange={(e) => 
+                            {
+                                setLastName(e.currentTarget.value)
+                                e.currentTarget.value === "" ? setLastNameVal("Nama depan tidak boleh kosong") : setLastNameVal("")
+                            }
+                            } val={lastNameVal} />
+                            <GlobalInput title="Email" onChange={(e) =>
+                            {
+                                setEmail(e.currentTarget.value)
+                                e.currentTarget.value === "" ? setEmailVal("Email Tidak boleh kosong") : (!validateEmail(email) ? setEmailVal("Format Email Tidak valid") : setEmailVal(""))
+                            }} val={emailVal} />
+                            <GlobalInput title="Password" type="password" onChange={(e) =>
+                            {
+                                setPassword(e.currentTarget.value)
+                                e.currentTarget.value === "" ? setPasswordVal("Password Tidak boleh kosong") : setPasswordVal("")
+                            }} val={passwordVal} />
                             <div>
                                 <label className="my-1">Jenis Kelamin </label>
                                 <div className="d-flex">
@@ -92,7 +106,11 @@ function RegisterPage()
                             <Gap height={30} />
                             <div>
                                 <label className="my-1">Provinsi </label>
-                                <select className="form-select" aria-label="" onChange={e => setProvince(e.currentTarget.value)} style={{ borderRadius: '8px' }} defaultValue={""}  >
+                                <select className="form-select" aria-label="" onChange={e =>
+                                {
+                                    setProvince(e.currentTarget.value)
+                                    e.currentTarget.value === "" ? setProvinceVal("Provinsi harus dipilih") : setProvinceVal("")
+                                }} style={{ borderRadius: '8px' }} defaultValue={""}  >
                                     <option >Pilih provinsi</option>
                                     {Province.map((data) => { return <option value={data.key} key={data.key}>{data.name}</option> })}
                                 </select>
@@ -101,7 +119,11 @@ function RegisterPage()
                             <Gap height={15} />
                             <div>
                                 <label className="my-1">Kota </label>
-                                <select className="form-select" aria-label="" onChange={e => setCity(e.currentTarget.value)} style={{ borderRadius: '8px' }} defaultValue={""} >
+                                <select className="form-select" aria-label="" onChange={e =>
+                                {
+                                    setCity(e.currentTarget.value)
+                                    e.currentTarget.value === "" ? setCityVal("Kota harus dipilih") : setCityVal("")
+                                }} style={{ borderRadius: '8px' }} defaultValue={""} >
                                     <option >Pilih Kota</option>
                                     {City.map((data) => { return province == data.id_province ? <option value={data.key} key={data.key}>{data.name}</option> : null })}
                                 </select>

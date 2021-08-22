@@ -28,8 +28,14 @@ function LoginPage()
                 <div className="container mt-5">
                     <h1 className="text-center text-info" style={{ fontWeight: "bold" }}>LOGIN</h1>
                     <form onSubmit={submitLogin}>
-                        <GlobalInput title="Email" onChange={(e) =>{ setEmail(e.currentTarget.value)} } val={emailVal} />
-                        <GlobalInput title="Password" type="password" onChange={(e) => setPassword(e.currentTarget.value)} val={passwordVal} />
+                        <GlobalInput title="Email" onChange={(e) =>{ 
+                            setEmail(e.currentTarget.value)
+                            e.currentTarget.value === "" ? setEmailVal("Email Tidak boleh kosong") :  setEmailVal("")
+                            } } val={emailVal} />
+                        <GlobalInput title="Password" type="password" onChange={(e) => {
+                            setPassword(e.currentTarget.value)
+                            e.currentTarget.value === "" ? setPasswordVal("Password Tidak boleh kosong") : setPasswordVal("")
+                            }} val={passwordVal} />
                         <Gap height={10} />
                         <div style={{ padding: '0 0 0 0' }}>
                             <GlobalButton variant="info" type="outline"  >Masuk</GlobalButton>
